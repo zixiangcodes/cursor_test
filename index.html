@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome | CoolWebsite</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-primary: #4f46e5;
+      --color-primary-dark: #4338ca;
+      --color-text: #1e293b;
+      --color-text-light: #64748b;
+      --color-bg: #ffffff;
+      --color-bg-alt: #f8fafc;
+      --color-border: #e2e8f0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* --- Navigation --- */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-text);
+    }
+
+    .nav-cta {
+      background: var(--color-primary);
+      color: #fff !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--color-primary-dark);
+    }
+
+    /* --- Hero --- */
+    .hero {
+      text-align: center;
+      padding: 6rem 1.5rem 4rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #eef2ff;
+      color: var(--color-primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--color-text-light);
+      max-width: 540px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: 0 1px 3px rgba(79, 70, 229, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-dark);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+    }
+
+    .btn-secondary {
+      background: var(--color-bg);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-bg-alt);
+    }
+
+    /* --- Features --- */
+    .features {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 5rem;
+    }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .features-header h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .features-header p {
+      color: var(--color-text-light);
+      font-size: 1.05rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      border-radius: 0.75rem;
+      padding: 2rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: #eef2ff;
+      color: var(--color-primary);
+      border-radius: 0.625rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+    }
+
+    /* --- CTA Section --- */
+    .cta-section {
+      text-align: center;
+      background: var(--color-bg-alt);
+      border-top: 1px solid var(--color-border);
+      padding: 5rem 1.5rem;
+    }
+
+    .cta-section h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-section p {
+      color: var(--color-text-light);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    /* --- Footer --- */
+    .footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 4rem 1.25rem 3rem;
+      }
+
+      .features {
+        padding: 3rem 1.25rem 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="nav">
+      <div class="nav-logo">CoolWebsite</div>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#cta">Pricing</a></li>
+        <li><a href="#cta">Contact</a></li>
+        <li><a href="#cta" class="nav-cta">Get Started</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="hero-badge">Now Available</span>
+    <h1>Build something great, starting today</h1>
+    <p>A clean, fast, and modern starting point for your next project. Designed to get you up and running in no time.</p>
+    <div class="hero-buttons">
+      <a href="#cta" class="btn btn-primary">Get Started</a>
+      <a href="#features" class="btn btn-secondary">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="features-header">
+      <h2>Everything you need</h2>
+      <p>Simple tools to help you launch faster and iterate with confidence.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#9889;</div>
+        <h3>Lightning Fast</h3>
+        <p>Optimized for speed with minimal overhead. Your site loads in milliseconds, not seconds.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128274;</div>
+        <h3>Secure by Default</h3>
+        <p>Built-in HTTPS, modern security headers, and best practices baked right in.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128241;</div>
+        <h3>Fully Responsive</h3>
+        <p>Looks great on every screen size, from mobile phones to ultra-wide monitors.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section" id="cta">
+    <h2>Ready to get started?</h2>
+    <p>Join thousands of developers building with CoolWebsite.</p>
+    <a href="#" class="btn btn-primary">Start Building</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2026 CoolWebsite. All rights reserved.
+  </footer>
+
+</body>
+</html>

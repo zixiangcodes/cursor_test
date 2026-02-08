@@ -206,7 +206,7 @@ section.hero {
 }
 
 .feature-card {
-  background: var(--color-bg);
+  background: #ede9fe;
   border: 1px solid var(--color-border);
   border-radius: 0.75rem;
   padding: 2rem;
